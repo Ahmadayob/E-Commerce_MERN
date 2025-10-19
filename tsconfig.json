@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // Runtime/Module
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+
+    // Node types (needed for process, __dirname alternatives, etc.)
+    "types": ["node"],
+
+    // Source outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+
+    // Strictness
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // ESM ergonomics with CJS packages like express
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Keep these if you like; they’re fine with tsx + NodeNext
+    "verbatimModuleSyntax": false,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+
+    // JSX only if عندك React في نفس الريبو
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
