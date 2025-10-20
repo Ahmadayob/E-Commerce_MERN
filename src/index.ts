@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import userRoute from "./routes/userRoutes";
+import productRoute from "./routes/productRoutes";
+import { seedInitialProducts } from "./services/productServices";
 
 // Catch uncaught exceptions
 process.on('uncaughtException', (error) => {
@@ -30,12 +32,16 @@ try {
     })
 
     app.use('/user', userRoute)
+    app.use('/api/products', productRoute)
 
     // Global error handler
     app.use((err: any, req: any, res: any, next: any) => {
         console.error('Global error:', err);
         res.status(500).json({ error: 'Something went wrong!' });
     });
+
+    // Seed initial products after database connection
+    seedInitialProducts().catch(console.error);
 
     app.listen(port,()=>{
         console.log(`server is running at:http://localhost:${port}`)
