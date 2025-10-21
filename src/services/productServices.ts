@@ -16,8 +16,6 @@ export const seedInitialProducts = async () => {
         if(existingProducts.length === 0){
             await ProductModel.insertMany(products);
             console.log("Initial products seeded successfully!");
-        } else {
-            console.log("Products already exist in database");
         }
     } catch (error) {
         console.error("Error seeding products:", error);
