@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRoute from "./routes/userRoutes";
 import productRoute from "./routes/productRoutes";
+import cartRouts from './routes/cartRoutes';
 import { seedInitialProducts } from "./services/productServices";
 
 // Catch uncaught exceptions
@@ -33,6 +34,7 @@ try {
 
     app.use('/user', userRoute)
     app.use('/api/products', productRoute)
+    app.use('/cart',cartRouts)
 
     // Global error handler
     app.use((err: any, req: any, res: any, next: any) => {
